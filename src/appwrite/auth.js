@@ -45,19 +45,14 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      const user = await this.account.get();
-
-      if (user) {
-        return user;
-      } else {
-        throw new Error("User not found");
-      }
+     return await this.account.get();
     } catch (error) {
-      throw error;
+     console.log(error);
     }
-    
-    // eslint-disable-next-line no-unreachable
     return null;
+    
+    
+   
   }
   async logout() {
     try {
